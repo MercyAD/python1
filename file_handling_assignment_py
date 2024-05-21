@@ -1,0 +1,55 @@
+# file_handling_assignment.py
+
+def create_and_write_file():
+    try:
+        # Create a new file and write initial content
+        with open("my_file.txt", 'w') as file:
+            file.write("This is the first line.\n")
+            file.write("The number is 42.\n")
+            file.write("Hello, world!\n")
+        print("File created and initial content written successfully.")
+    except PermissionError as e:
+        print(f"Permission error: {e}")
+    except Exception as e:
+        print(f"An error occurred: {e}")
+    finally:
+        print("Create and write operation complete.")
+
+def read_file():
+    try:
+        # Read the contents of the file
+        with open("my_file.txt", 'r') as file:
+            contents = file.read()
+        print("File contents:")
+        print(contents)
+    except FileNotFoundError as e:
+        print(f"File not found: {e}")
+    except PermissionError as e:
+        print(f"Permission error: {e}")
+    except Exception as e:
+        print(f"An error occurred: {e}")
+    finally:
+        print("Read operation complete.")
+
+def append_to_file():
+    try:
+        # Append additional content to the file
+        with open("my_file.txt", 'a') as file:
+            file.write("Appending this new line.\n")
+            file.write("Another number: 123.\n")
+            file.write("Goodbye, world!\n")
+        print("Content appended successfully.")
+    except FileNotFoundError as e:
+        print(f"File not found: {e}")
+    except PermissionError as e:
+        print(f"Permission error: {e}")
+    except Exception as e:
+        print(f"An error occurred: {e}")
+    finally:
+        print("Append operation complete.")
+
+# Perform the file operations
+create_and_write_file()
+read_file()
+append_to_file()
+read_file()  # Read again to show the updated contents
